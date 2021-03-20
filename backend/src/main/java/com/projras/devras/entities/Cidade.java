@@ -4,20 +4,34 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name= "tb_cidade")
 public class Cidade implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCidade;
+	private String nome;
 	private String uf;
 	
-	List<Endereco> enderecos = new ArrayList<>();
+	@OneToMany(mappedBy = "cidade")
+	private List<Endereco> enderecos = new ArrayList<>();
 	
 	public Cidade() {
 	}
 
-	public Cidade(Long idCidade, String uf) {
+	public Cidade(Long idCidade,String nome, String uf) {
 		super();
 		this.idCidade = idCidade;
+		this.nome = nome;
 		this.uf = uf;
 	}
 
@@ -28,6 +42,12 @@ public class Cidade implements Serializable {
 	public void setIdCidade(Long idCidade) {
 		this.idCidade = idCidade;
 	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
 	public String getUf() {
 		return uf;
@@ -35,6 +55,10 @@ public class Cidade implements Serializable {
 
 	public void setUf(String uf) {
 		this.uf = uf;
+	}
+		
+	public List<Endereco> getEnderecos() {
+		return enderecos;
 	}
 
 	@Override

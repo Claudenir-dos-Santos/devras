@@ -2,12 +2,24 @@ package com.projras.devras.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import com.projras.devras.entities.enums.Cargo;
 import com.projras.devras.entities.enums.TipoCadastro;
 
+@Entity
+@Table(name= "tb_cadastro")
 public class Cadastro implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCadastro;
 	private Long entidadeAssociada;
 	private String identificacao;
@@ -17,6 +29,8 @@ public class Cadastro implements Serializable {
 	private Cargo cargo;
 	private TipoCadastro tipoCadastro;
 	
+	@ManyToOne
+	@JoinColumn(name = "endereco_idEndereco")
 	private Endereco endereco;
 	
 	public Cadastro() {
