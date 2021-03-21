@@ -21,11 +21,12 @@ public class Cadastro implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCadastro;
-	private Long entidadeAssociada;
-	private String identificacao;
+	private Long entidadeAssociada;// COLOCAR O ID DA ENTIDADE DE ORIGEM, se for entidade 0
+	private String identificacao; // RG, CPF, CNPJ
 	private String nome;
 	private String telefoneFixo;
 	private String telefoneCelular;
+	private String foto;
 	private Cargo cargo;
 	private TipoCadastro tipoCadastro;
 	
@@ -37,7 +38,7 @@ public class Cadastro implements Serializable {
 	}
 
 	public Cadastro(Long idCadastro, Long entidadeAssociada, String identificacao, String nome, String telefoneFixo,
-			String telefoneCelular, Cargo cargo, TipoCadastro tipoCadastro, Endereco endereco) {
+			String telefoneCelular, String foto, Cargo cargo, TipoCadastro tipoCadastro, Endereco endereco) {
 		super();
 		this.idCadastro = idCadastro;
 		this.entidadeAssociada = entidadeAssociada;
@@ -45,6 +46,7 @@ public class Cadastro implements Serializable {
 		this.nome = nome;
 		this.telefoneFixo = telefoneFixo;
 		this.telefoneCelular = telefoneCelular;
+		this.setFoto(foto);
 		this.cargo = cargo;
 		this.tipoCadastro = tipoCadastro;
 		this.endereco = endereco;
@@ -97,6 +99,14 @@ public class Cadastro implements Serializable {
 	public void setTelefoneCelular(String telefoneCelular) {
 		this.telefoneCelular = telefoneCelular;
 	}
+	
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
 
 	public Cargo getCargo() {
 		return cargo;
@@ -146,6 +156,5 @@ public class Cadastro implements Serializable {
 			return false;
 		return true;
 	}
-	
 
 }
