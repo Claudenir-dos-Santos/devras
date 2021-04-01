@@ -14,20 +14,20 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name= "tb_endereco")
+@Table(name= "endereco")
 public class Endereco implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idEndereco;
+	private Long id;
 	private String logradouro;
 	private Long numero;
 	private String cep;
 	private String gps;
 	
 	@ManyToOne
-	@JoinColumn(name = "cidade_idCidade")
+	@JoinColumn(name = "cidade_id")
 	private Cidade cidade;
 	
 	@OneToMany(mappedBy ="endereco")
@@ -36,9 +36,9 @@ public class Endereco implements Serializable {
 	public Endereco() {
 	}
 
-	public Endereco(Long idEndereco, String logradouro, Long numero, String cep, String gps, Cidade cidade) {
+	public Endereco(Long id, String logradouro, Long numero, String cep, String gps, Cidade cidade) {
 		super();
-		this.idEndereco = idEndereco;
+		this.id = id;
 		this.logradouro = logradouro;
 		this.numero = numero;
 		this.cep = cep;
@@ -46,12 +46,12 @@ public class Endereco implements Serializable {
 		this.cidade = cidade;
 	}
 
-	public Long getIdEndereco() {
-		return idEndereco;
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdEndereco(Long idEndereco) {
-		this.idEndereco = idEndereco;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getLogradouro() {
@@ -102,7 +102,7 @@ public class Endereco implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idEndereco == null) ? 0 : idEndereco.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -115,16 +115,12 @@ public class Endereco implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Endereco other = (Endereco) obj;
-		if (idEndereco == null) {
-			if (other.idEndereco != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!idEndereco.equals(other.idEndereco))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
-	
-	
-	
-	
 
 }

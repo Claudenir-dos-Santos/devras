@@ -14,13 +14,13 @@ import com.projras.devras.entities.enums.Cargo;
 import com.projras.devras.entities.enums.TipoCadastro;
 
 @Entity
-@Table(name= "tb_cadastro")
+@Table(name= "cadastro")
 public class Cadastro implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idCadastro;
+	private Long id;
 	private Long entidadeAssociada;// COLOCAR O ID DA ENTIDADE DE ORIGEM, se for entidade 0
 	private String identificacao; // RG, CPF, CNPJ
 	private String nome;
@@ -31,33 +31,33 @@ public class Cadastro implements Serializable {
 	private TipoCadastro tipoCadastro;
 	
 	@ManyToOne
-	@JoinColumn(name = "endereco_idEndereco")
+	@JoinColumn(name = "endereco_id")
 	private Endereco endereco;
 	
 	public Cadastro() {
 	}
 
-	public Cadastro(Long idCadastro, Long entidadeAssociada, String identificacao, String nome, String telefoneFixo,
+	public Cadastro(Long id, Long entidadeAssociada, String identificacao, String nome, String telefoneFixo,
 			String telefoneCelular, String foto, Cargo cargo, TipoCadastro tipoCadastro, Endereco endereco) {
 		super();
-		this.idCadastro = idCadastro;
+		this.id = id;
 		this.entidadeAssociada = entidadeAssociada;
 		this.identificacao = identificacao;
 		this.nome = nome;
 		this.telefoneFixo = telefoneFixo;
 		this.telefoneCelular = telefoneCelular;
-		this.setFoto(foto);
+		this.foto = foto;
 		this.cargo = cargo;
 		this.tipoCadastro = tipoCadastro;
 		this.endereco = endereco;
 	}
 
-	public Long getIdCadastro() {
-		return idCadastro;
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdCadastro(Long idCadastro) {
-		this.idCadastro = idCadastro;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Long getEntidadeAssociada() {
@@ -136,7 +136,7 @@ public class Cadastro implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idCadastro == null) ? 0 : idCadastro.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -149,10 +149,10 @@ public class Cadastro implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Cadastro other = (Cadastro) obj;
-		if (idCadastro == null) {
-			if (other.idCadastro != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!idCadastro.equals(other.idCadastro))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}

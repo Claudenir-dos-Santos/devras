@@ -12,13 +12,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name= "tb_cidade")
+@Table(name= "cidade")
 public class Cidade implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idCidade;
+	private Long id;
 	private String nome;
 	private String uf;
 	
@@ -28,19 +28,19 @@ public class Cidade implements Serializable {
 	public Cidade() {
 	}
 
-	public Cidade(Long idCidade,String nome, String uf) {
+	public Cidade(Long id,String nome, String uf) {
 		super();
-		this.idCidade = idCidade;
+		this.id = id;
 		this.nome = nome;
 		this.uf = uf;
 	}
 
-	public Long getIdCidade() {
-		return idCidade;
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdCidade(Long idCidade) {
-		this.idCidade = idCidade;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getNome() {
 		return nome;
@@ -65,7 +65,7 @@ public class Cidade implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idCidade == null) ? 0 : idCidade.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -78,10 +78,10 @@ public class Cidade implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Cidade other = (Cidade) obj;
-		if (idCidade == null) {
-			if (other.idCidade != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!idCidade.equals(other.idCidade))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
