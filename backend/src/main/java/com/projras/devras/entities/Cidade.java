@@ -22,6 +22,7 @@ public class Cidade implements Serializable {
 	private String nome;
 	private String uf;
 	
+
 	@OneToMany(mappedBy = "cidade")
 	private List<Endereco> enderecos = new ArrayList<>();
 	
