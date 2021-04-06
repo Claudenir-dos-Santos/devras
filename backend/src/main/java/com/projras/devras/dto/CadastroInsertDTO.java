@@ -2,44 +2,39 @@ package com.projras.devras.dto;
 
 import java.io.Serializable;
 
-import com.projras.devras.entities.Cadastro;
 import com.projras.devras.entities.enums.Cargo;
 import com.projras.devras.entities.enums.TipoCadastro;
 
-public class CadastroDTO implements Serializable {
+public class CadastroInsertDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private Long id;
+	private Long cargoId;
+	private Long tipoCadastroId;
 	private Long entidadeAssociada;
+	private Long enderecoId;
 	private String identificacao; 
 	private String nome;
 	private String telefoneFixo;
 	private String telefoneCelular;
 	private String foto;
-	private Cargo cargo;
-	private TipoCadastro tipoCadastro;
 	
-	public CadastroDTO() {		
+	public CadastroInsertDTO() {
 	}
 
-	public CadastroDTO(Cadastro entity) {
-		id = entity.getId();
-		entidadeAssociada = entity.getEntidadeAssociada();
-		identificacao = entity.getIdentificacao();
-		nome = entity.getNome();
-		telefoneFixo = entity.getTelefoneFixo();
-		telefoneCelular = entity.getTelefoneCelular();
-		foto = entity.getFoto();
-		cargo = entity.getCargo();
-		tipoCadastro = entity.getTipoCadastro();
-	}
-	
-	public Long getId() {
-		return id;
+	public Long getCargoId() {
+		return cargoId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setCargoId(Long cargoId) {
+		this.cargoId = cargoId;
+	}
+
+	public Long getTipoCadastroId() {
+		return tipoCadastroId;
+	}
+
+	public void setTipoCadastroId(Long tipoCadastroId) {
+		this.tipoCadastroId = tipoCadastroId;
 	}
 
 	public Long getEntidadeAssociada() {
@@ -48,6 +43,16 @@ public class CadastroDTO implements Serializable {
 
 	public void setEntidadeAssociada(Long entidadeAssociada) {
 		this.entidadeAssociada = entidadeAssociada;
+	}
+
+	
+	
+	public Long getEnderecoId() {
+		return enderecoId;
+	}
+
+	public void setEnderecoId(Long enderecoId) {
+		this.enderecoId = enderecoId;
 	}
 
 	public String getIdentificacao() {
@@ -89,21 +94,6 @@ public class CadastroDTO implements Serializable {
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
-
-	public Cargo getCargo() {
-		return cargo;
-	}
-
-	public void setCargo(Cargo cargo) {
-		this.cargo = cargo;
-	}
-
-	public TipoCadastro getTipoCadastro() {
-		return tipoCadastro;
-	}
-
-	public void setTipoCadastro(TipoCadastro tipoCadastro) {
-		this.tipoCadastro = tipoCadastro;
-	}
-		
+	
+	
 }

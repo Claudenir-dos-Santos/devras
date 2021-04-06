@@ -22,6 +22,6 @@ public class CadastroResource {
 	public ResponseEntity<List<CadastroDTO>> findAll(){
 		List<CadastroDTO> list = service.findAll();
 		return ResponseEntity.ok().body(list);
-		
 	}
+	
 }
