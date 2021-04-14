@@ -28,7 +28,7 @@ public class EnderecoPostService {
 		entity.setLogradouro(dto.getLogradouro());
 		entity.setNumero(dto.getNumero());
 		entity.setCep(dto.getCep());
-		
+		entity.setGps(dto.getGps());
 		Cidade cidade = cidadeRepository.getOne(dto.getCidadeId());
 		entity.setCidade(cidade);
 		

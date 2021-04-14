@@ -14,4 +14,5 @@ public enum Cargo {
 	Condutor,
 	Socorrista,
 	Medico;
+
 }

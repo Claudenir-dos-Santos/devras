@@ -2,12 +2,14 @@ package com.projras.devras.dto;
 
 import java.io.Serializable;
 
+import com.projras.devras.entities.Cadastro;
 import com.projras.devras.entities.enums.Cargo;
 import com.projras.devras.entities.enums.TipoCadastro;
 
-public class CadastroInsertDTO implements Serializable {
+public class CadastroPostDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	private Long id;
 	private Cargo cargo;
 	private TipoCadastro tipoCadastro;
 	private Long entidadeAssociada;
@@ -18,7 +20,30 @@ public class CadastroInsertDTO implements Serializable {
 	private String telefoneCelular;
 	private String foto;
 	
-	public CadastroInsertDTO() {
+	public CadastroPostDTO() {
+		
+	}
+
+	public CadastroPostDTO(Cadastro entity) {
+		
+		id = entity.getId();
+		cargo = entity.getCargo();
+		tipoCadastro = entity.getTipoCadastro();
+		entidadeAssociada = entity.getEntidadeAssociada();
+		enderecoId = entity.getEndereco().getId();
+		identificacao = entity.getIdentificacao(); 
+		nome = entity.getNome();
+		telefoneFixo = entity.getTelefoneFixo();
+		telefoneCelular = entity.getTelefoneCelular();
+		foto = entity.getFoto();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Cargo getCargo() {
@@ -45,8 +70,6 @@ public class CadastroInsertDTO implements Serializable {
 		this.entidadeAssociada = entidadeAssociada;
 	}
 
-	
-	
 	public Long getEnderecoId() {
 		return enderecoId;
 	}
@@ -94,6 +117,5 @@ public class CadastroInsertDTO implements Serializable {
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
-	
-	
+
 }

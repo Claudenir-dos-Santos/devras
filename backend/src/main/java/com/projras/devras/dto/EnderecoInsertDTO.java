@@ -10,19 +10,13 @@ public class EnderecoInsertDTO implements Serializable {
 	private String logradouro;
 	private Long numero;
 	private String cep;
+	private String gps;
 	private Long cidadeId;
 	
 	public EnderecoInsertDTO() {
 		
 	}
-	/*
-	public EnderecoInsertDTO(Endereco entity) {
-		logradouro = entity.getLogradouro();
-		numero = entity.getNumero();
-		cep = entity.getCep();
-		cidadeId = entity.getCidade().getId();
-	}
-	*/
+
 	public String getLogradouro() {
 		return logradouro;
 	}
@@ -45,6 +39,14 @@ public class EnderecoInsertDTO implements Serializable {
 
 	public void setCep(String cep) {
 		this.cep = cep;
+	}
+
+	public String getGps() {
+		return gps;
+	}
+
+	public void setGps(String gps) {
+		this.gps = gps;
 	}
 
 	public Long getCidadeId() {
