@@ -2,7 +2,7 @@ package com.projras.devras.dto;
 
 import java.io.Serializable;
 
-import com.projras.devras.entities.Endereco;
+
 
 public class EnderecoInsertDTO implements Serializable {
 	private static final long serialVersionUID = 1L;

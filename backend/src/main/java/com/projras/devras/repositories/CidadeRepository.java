@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.projras.devras.entities.Cidade;
 
 /*
-  implementa camada de acesso adados CRUD
+  implementa camada de acesso a dados CRUD
 */
 @Repository
 public interface CidadeRepository extends JpaRepository<Cidade, Long>{

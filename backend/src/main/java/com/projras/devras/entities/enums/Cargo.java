@@ -1,7 +1,7 @@
 package com.projras.devras.entities.enums;
 
 public enum Cargo {
-	N_A,
+	Não_Se_Aplica,
 	Atendente_Central,
 	Atendente_Clinica,
 	Atendente_Hospital,

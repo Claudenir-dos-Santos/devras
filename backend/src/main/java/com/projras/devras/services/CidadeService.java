@@ -22,6 +22,8 @@ public class CidadeService {
 		List<Cidade> list = repository.findAll();
 		return list.stream().map(x -> new CidadeDTO(x)).collect(Collectors.toList());
 	}
-	
-	
 }
+
+
+
+
